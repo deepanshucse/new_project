@@ -1,11 +1,14 @@
 import React, { useState } from "react";
+import Dialog from '@mui/material/Dialog';
+import Edit from "./Edit";
 
 // import Db from '../../server/db.json';
 
 function Records(props) {
   const { dbData } = props;
   // console.log(dbData);
-
+  const [editShow,seteditShow] = useState(false);
+  const [editUser,seteditUser] = useState(null);
   // const [idsToDelete, setIdsToDelete] = useState([]);
   // console.log(idsToDelete);
 
@@ -19,7 +22,9 @@ function Records(props) {
   // console.log(idsToDelete);
   //function for delete
   const idToEdit = (node) => {
-    console.log(props.onEdit(node));
+    console.log(node);
+    seteditUser(node);
+    seteditShow(true);
   };
 
   return (
@@ -61,11 +66,11 @@ function Records(props) {
                 <input
                   type="button"
                   onClick={() => {
-                    idToEdit(info.id);
+                    idToEdit(info.id)
                     // idToEdit(info.id,info.formValues.department,info.desValue.designation ,info.stateValue.States ,info.districtValue.districts )
                   }}
                   style={{
-                    align: "center",
+                    align: "center",  
                     padding: "5px",
                     margin: "10px 0px 0px 10px",
                     color: "white",
@@ -73,6 +78,17 @@ function Records(props) {
                   }}
                   value="Edit"
                 />
+                 <Dialog
+                      open={editShow}
+                      onClose={()=>{seteditShow(false)}}
+                      aria-labelledby="alert-dialog-title"
+                      aria-describedby="alert-dialog-description"
+                      className = "editDialog"
+                  >
+                        <Edit
+                          isEdit={editUser}
+                        />
+                  </Dialog>
               </form>
             );
           })}

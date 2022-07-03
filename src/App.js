@@ -117,11 +117,11 @@ function App() {
 
   //for edit
 
-  const editData = (id) => {
-    console.log(id);
-    return id;
+  // const editData = (id) => {
+  //   console.log(id);
+  //   return id;
 
-  };
+  // };
 
   // const [editData, setEditData] = useState([]);
   // const onEdit = (data) => {
@@ -155,11 +155,11 @@ function App() {
         onSelect2={handleSelected2}
         onSelect3={handleSelected3}
       />
-      <Edit editData={editData} 
+      {/* <Edit editData={editData}
        
         // postDB={postToDB}
-      />
-      <Submit
+      /> */}
+      {/* <Submit
         clearForm={clearForm}
        
         // onFormSubmit1={handleFormSubmit1}
@@ -169,13 +169,12 @@ function App() {
         // getDb={getToDB}
         postDB={postToDB}
         // onClick={() => {}}
-      />
+      /> */}
 
       <Records
         dbData={dbData}
         parentTochild={tupac}
         onSetIdsToDelete={handleSetIdsToDelete}
-        onEdit={editData}
       />
       <input
         type="button"
